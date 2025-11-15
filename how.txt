@@ -1,0 +1,44 @@
+
+
+# Load games with recent.py and filter them with shortloss.py:
+
+#  p recent.py
+
+#  p shortloss.py  > recent.pgn
+
+# Then run
+#  p findblun.py 
+# to create the TSVs, then rename and combine them:
+
+cat blunder*tsv > all.tsv
+
+python dopp.py
+
+python procblun.py
+
+##########################################################
+
+# find bad moves played which came from the book:
+
+python inbook-c.py
+
+##########################################################
+
+polyglot merge-book -in1 /usr/share/scid/books/z3mod.bin -in2 blunder.bin -out merged.bin
+
+ cp merged.bin /usr/share/scid/books/
+
+ cp merged.bin /home/martin/Dokumente/chess/lichess-bot/engines
+
+##########################################################
+
+ls -l merged.bin 
+serve_current
+
+
+
+echo
+echo +++++++++++++++++++++++++++++++++++++++++++
+echo +++ Remember to rename the TSV file !!!!!!!
+echo +++++++++++++++++++++++++++++++++++++++++++
+
