@@ -4,7 +4,7 @@ import os, time, json
 from urllib.request import urlopen
 
 # update this to total number of games played after running recent.py:
-oldnum = 22213
+oldnum = 23119
 
 #days = 1
 #t = 1000 * (time.time() - days * 24 * 60 * 60)
